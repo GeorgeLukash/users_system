@@ -1,0 +1,25 @@
+[{
+    "id": "1",
+    "name": "Nikolas",
+    "lastname": "Tyshenko",
+    "email": "nikolas@gmail.com",
+    "age": "15"
+}, {
+    "id": "2",
+    "name": "Eduard",
+    "lastname": "Konoplianka",
+    "email": "eduard@gmail.com",
+    "age": "85"
+}, {
+    "id": "3",
+    "name": "Mariya",
+    "lastname": "Bida",
+    "email": "mary@gmail.com",
+    "age": "22"
+}, {
+    "id": "4",
+    "name": "Dima",
+    "lastname": "Petrenko",
+    "email": "dima@gmail.com",
+    "age": "32"
+}]

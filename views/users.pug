@@ -1,0 +1,73 @@
+extends layout
+
+block main  
+    div(class='cust')
+        if users      
+            table(class='table table-cust')
+                tr
+                    th Id
+                    th First Name
+                    th Last Name
+                    th Email  
+                    th Age 
+                    th Delete
+                    th Edit
+                for user in users
+                    tr
+                        td= user.id
+                        td= user.name         
+                        td= user.lastname
+                        td= user.email
+                        td= user.age
+                        td                        
+                            button(class='btn btn-danger' id= user.id onclick= 'deleteUser('+user.id+')' ) X
+                        td
+                            button(class='btn btn-warning' onclick= `editUser(${JSON.stringify(user)})` ) Edit                                        
+                tr
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                        button(class='btn btn-success' onclick= 'addUser()') Add user 
+        else if user
+            table(class='table table-cust')
+                tr
+                    th Id
+                    th First Name
+                    th Last Name
+                    th Email  
+                    th Age     
+                    th Delete    
+                    th Edit    
+                tr
+                    td= user.id
+                    td= user.name         
+                    td= user.lastname
+                    td= user.email
+                    td= user.age
+                    td   
+                        button(class='btn btn-danger' id= user.id onclick= 'deleteUser('+user.id+')') X
+                    td
+                        button(class='btn btn-warning' onclick= `editUser(${JSON.stringify(user)})`) Edit            
+
+        else        
+            table(class='table')
+                tr
+                    th No users here!!   
+    div(id='myModal' class='modal')
+        div(class='modal-content')
+            span(class='close' onclick= 'hideModal()') X
+            h1(id= "modal_title") Create new user
+            form(id='myForm' method='post')
+                label(for='name') First Name
+                input(type='text' id='name' name='name' placeholder='Your first name..')
+                label(for='lastname') Last Name
+                input(type='text' id='lastname' name='lastname' placeholder='Your last name..')
+                label(for='email') Email
+                input(type='email' id='email' name='email' placeholder='Your email..')
+                label(for='age') Age
+                input(type='text' id='age' name='age' placeholder='Your age..')   
+                input(type='submit' value='Submit' onclick= 'hideModal()')    
