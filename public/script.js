@@ -1,5 +1,4 @@
 let modal;
-let modal1;
 
 let name;
 let lastname;
@@ -22,8 +21,8 @@ window.onload = function () {
 
 
 let addUser = function () {
-
     modal.style.display = "block";
+    
     h1.innerText = "Create user";
     form.action = "/users";
     name.value = "";
