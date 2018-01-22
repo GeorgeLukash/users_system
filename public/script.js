@@ -14,7 +14,7 @@ window.onload = function () {
     lastname = document.getElementById('lastname');
     email = document.getElementById('email');
     age = document.getElementById('age');
-    form = document.getElementById('myForm');    
+    form = document.getElementById('myForm');
     h1 = document.getElementById('modal_title');
 
 }
@@ -22,7 +22,7 @@ window.onload = function () {
 
 let addUser = function () {
     modal.style.display = "block";
-    
+
     h1.innerText = "Create user";
     form.action = "/users";
     name.value = "";
@@ -30,7 +30,7 @@ let addUser = function () {
     email.value = "";
     age.value = "";
 }
-let editUser = function (user) {    
+let editUser = function (user) {
     modal.style.display = "block";
     h1.innerText = "Edit user";
     form.action = "/users/" + user.id;
@@ -46,7 +46,11 @@ let hideModal = function () {
 }
 
 let deleteUser = function (id) {
-    window.location.replace("http://localhost:3000/users?delete=" + id);
+    //window.location.replace("http://localhost:3000/users?delete=" + id);
+    var connection = new XMLHttpRequest();   
+    connection.open('DELETE', '/users/' + id, true);
+    connection.send();
+    console.log(connection.responseText);
 }
 
 window.onclick = function (event) {

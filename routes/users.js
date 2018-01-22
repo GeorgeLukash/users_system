@@ -6,24 +6,14 @@ let users = require('../models/data');
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
-
 router.get('/', (req, res) => {
     res.render('index');
 });
 
 router.get('/users', (req, res) => {
-    if (req.query.delete) {
-        users = users.filter((el) => {
-            return el.id !== req.query.delete;
-        });
-        res.render('users', {
-            users
-        });
-    } else {
-        res.render('users', {
-            users
-        });
-    }
+    res.render('users', {
+        users
+    });
 });
 
 router.get('/users/:id', (req, res) => {
@@ -34,6 +24,7 @@ router.get('/users/:id', (req, res) => {
         });
     }
 });
+
 
 router.post('/users', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
@@ -58,7 +49,17 @@ router.post('/users', urlencodedParser, (req, res) => {
     });
 });
 
-router.post('/users/:id', urlencodedParser, (req, res) => {
+
+router.delete('/users/:id', (req, res) => {
+    users = users.filter((el) => {
+        return el.id !== req.params.id;
+    });
+    res.render('users', {
+        users
+    });
+});
+
+router.put('/users/:id', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
 
     if (req.params.id) {
@@ -72,6 +73,5 @@ router.post('/users/:id', urlencodedParser, (req, res) => {
         });
     }
 });
-
 
 module.exports = router;
