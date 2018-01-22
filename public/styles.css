@@ -35,27 +35,29 @@ li {
 
 
 /*-------------------Users table-------------------*/
-.cust{
+
+.cust {
     margin: 50px auto;
     padding: 25px 15px 50px 15px;
     width: 70%;
     border-radius: 10px;
     background-color: white;
 }
-.table-cust {   
+
+.table-cust {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;    
+    font-size: 18px;
     height: 100%;
-    margin: 50px auto;      
+    margin: 50px auto;
     border-radius: 10px;
     background-color: white;
 }
 
-.table-cust th {    
+.table-cust th {
     font-size: 24px!important;
-    border-top:none!important;
+    border-top: none!important;
     border-bottom: 2px solid #707070;
-    text-align: center;    
+    text-align: center;
 }
 
 .table-cust td {
@@ -63,7 +65,7 @@ li {
     border-bottom: 2px solid #b9b9b9;
 }
 
-.table-cust tr:last-child td{
+.table-cust tr:last-child td {
     text-align: center;
     border-bottom: none;
 }
@@ -117,7 +119,8 @@ li {
 /*-------------------Form-------------------*/
 
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=hidden] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

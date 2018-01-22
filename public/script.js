@@ -1,6 +1,7 @@
 let modal;
 let modal1;
 
+let id;
 let name;
 let lastname;
 let email;
@@ -17,6 +18,7 @@ window.onload = function () {
     age = document.getElementById('age');
     form = document.getElementById('myForm');    
     h1 = document.getElementById('modal_title');
+    id = document.getElementById('id');
 
 }
 
@@ -26,6 +28,7 @@ let addUser = function () {
     modal.style.display = "block";
     h1.innerText = "Create user";
     form.action = "/users";
+    id.value = "";
     name.value = "";
     lastname.value = "";
     email.value = "";
@@ -34,7 +37,8 @@ let addUser = function () {
 let editUser = function (user) {    
     modal.style.display = "block";
     h1.innerText = "Edit user";
-    form.action = "/users/" + user.id;
+    form.action = "/users/edit";
+    id.value = user.id;
     name.value = user.name;
     lastname.value = user.lastname;
     email.value = user.email;

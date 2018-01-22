@@ -62,6 +62,8 @@ block main
             span(class='close' onclick= 'hideModal()') X
             h1(id= "modal_title") Create new user
             form(id='myForm' method='post')
+                label(for='id') User Id
+                input(type='hidden' id='id' name='id' placeholder='id' readonly)
                 label(for='name') First Name
                 input(type='text' id='name' name='name' placeholder='Your first name..')
                 label(for='lastname') Last Name
