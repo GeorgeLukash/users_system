@@ -49,8 +49,8 @@ let deleteUser = function (id) {
     //window.location.replace("http://localhost:3000/users?delete=" + id);
     var connection = new XMLHttpRequest();   
     connection.open('DELETE', '/users/' + id, true);
-    connection.send();
-    console.log(connection.responseText);
+    connection.send();    
+    location.reload();
 }
 
 window.onclick = function (event) {
