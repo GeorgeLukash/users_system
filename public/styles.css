@@ -1,8 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    /*background-color: #bb2430!important;*/
-    background-image: url('./img/bcg-img.jpg');
+    background-image: url('./img/img-bcg.png');
     background-repeat: repeat;
 }
 

@@ -28,7 +28,7 @@ router.get('/users/:id', (req, res) => {
 
 router.post('/users', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-
+    console.log(req.body);
     let user = req.body;
     let id = [];
     let max;

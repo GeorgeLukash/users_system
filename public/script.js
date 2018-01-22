@@ -16,19 +16,40 @@ window.onload = function () {
     age = document.getElementById('age');
     form = document.getElementById('myForm');
     h1 = document.getElementById('modal_title');
-
 }
 
-
-let addUser = function () {
+let showModal = function () {
     modal.style.display = "block";
 
     h1.innerText = "Create user";
-    form.action = "/users";
+
     name.value = "";
     lastname.value = "";
     email.value = "";
     age.value = "";
+};
+
+let addUser = function () {
+    modal.style.display = "none";
+
+    let xhr = new XMLHttpRequest();
+
+    let body = 'name=' + name.value +
+        '&lastname=' + lastname.value +
+        '&email=' + email.value +
+        '&age=' + age.value;
+    alert(body);
+    xhr.open("POST", '/users', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    /* alert(xhr.readyState+"\r\n"+xhr.status);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState==1 && xhr.status==0){
+            console.log('i am alive');
+        }
+    }; */
+    window.location.replace("http://localhost:3000/users");
+    xhr.send(body);
 }
 let editUser = function (user) {
     modal.style.display = "block";
@@ -38,7 +59,6 @@ let editUser = function (user) {
     lastname.value = user.lastname;
     email.value = user.email;
     age.value = user.age;
-
 }
 
 let hideModal = function () {
@@ -46,10 +66,9 @@ let hideModal = function () {
 }
 
 let deleteUser = function (id) {
-    //window.location.replace("http://localhost:3000/users?delete=" + id);
-    var connection = new XMLHttpRequest();   
-    connection.open('DELETE', '/users/' + id, true);
-    connection.send();    
+    let xhr = new XMLHttpRequest();
+    xhr.open('DELETE', '/users/' + id, true);
+    xhr.send();
     location.reload();
 }
 
