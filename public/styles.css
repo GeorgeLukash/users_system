@@ -122,7 +122,8 @@ li {
 /*-------------------Form-------------------*/
 
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=hidden] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

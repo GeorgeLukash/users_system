@@ -28,7 +28,7 @@ router.get('/users/:id', (req, res) => {
 
 router.post('/users', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-    console.log(req.body);
+    
     let user = req.body;
     let id = [];
     let max;
@@ -59,11 +59,11 @@ router.delete('/users/:id', (req, res) => {
     });
 });
 
-router.put('/users/:id', urlencodedParser, (req, res) => {
+router.put('/users', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-
-    if (req.params.id) {
-        const user = users.find(user => user.id == req.params.id);
+    
+    if (req.body.id) {
+        const user = users.find(user => user.id == req.body.id);
         user.name = req.body.name;
         user.lastname = req.body.lastname;
         user.email = req.body.email;
