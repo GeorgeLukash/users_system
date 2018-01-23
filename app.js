@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 const route = require('./routes/users');
+const methodOverride = require('method-override');
 
 let app = express();
 
 app.set('view engine', 'pug');
+
+app.use(methodOverride('_method'))
 
 app.use(express.static(__dirname + '/public'));
 
