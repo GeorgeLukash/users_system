@@ -60,11 +60,20 @@ let addUser = function () {
         '&lastname=' + lastname.value +
         '&email=' + email.value +
         '&age=' + age.value;
-    
+
     xhr.open("POST", '/users', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     window.location.replace("http://localhost:3000/users");
     xhr.send(body);
+    xhr.onload = function () {
+        // var users = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.log("Success");
+            window.location.replace("http://localhost:3000/users");
+        } else {
+            console.error("fail");
+        }
+    };
 }
 
 let editUser = function () {
@@ -75,11 +84,21 @@ let editUser = function () {
         '&lastname=' + lastname.value +
         '&email=' + email.value +
         '&age=' + age.value;
-    
+
     xhr.open("PUT", '/users', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    window.location.replace("http://localhost:3000/users");
+
     xhr.send(body);
+
+    xhr.onload = function () {
+        // var users = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.log("Success");
+            window.location.replace("http://localhost:3000/users");
+        } else {
+            console.error("fail");
+        }
+    };
 }
 
 let hideModal = function () {
