@@ -1,26 +1,13 @@
-let modal;
+let modal = document.getElementById('myModal');
 
-let name;
-let lastname;
-let email;
-let age;
-let form;
-let h1;
-let btn_add;
-let btn_edit;
-
-window.onload = function () {
-    modal = document.getElementById('myModal');
-
-    name = document.getElementById('name');
-    lastname = document.getElementById('lastname');
-    email = document.getElementById('email');
-    age = document.getElementById('age');
-    form = document.getElementById('myForm');
-    h1 = document.getElementById('modal_title');
-    btn_add = document.getElementById('btn-add');
-    btn_edit = document.getElementById('btn-edit');
-}
+let name = document.getElementById('name');
+let lastname = document.getElementById('lastname');
+let email = document.getElementById('email');
+let age = document.getElementById('age');
+let form = document.getElementById('myForm');
+let h1 = document.getElementById('modal_title');
+let btn_add = document.getElementById('btn-add');
+let btn_edit = document.getElementById('btn-edit');
 
 let showModal = function () {
     modal.style.display = "block";
@@ -110,10 +97,4 @@ let deleteUser = function (id) {
     xhr.open('DELETE', '/users/' + id, true);
     xhr.send();
     location.reload();
-}
-
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 }
