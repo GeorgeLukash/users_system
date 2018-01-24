@@ -12,18 +12,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-    if (req.query.delete) {
-        users = users.filter((el) => {
-            return el.id !== req.query.delete;
-        });
-        res.render('users', {
-            users
-        });
-    } else {
-        res.render('users', {
-            users
-        });
-    }
+    res.render('users', {
+        users
+    });
 });
 
 router.get('/users/:id', (req, res) => {
@@ -35,9 +26,20 @@ router.get('/users/:id', (req, res) => {
     }
 });
 
+router.post('/users/delete/:id', urlencodedParser, (req, res) => {
+    if (req.params.id) {
+        users = users.filter((el) => {
+            return el.id !== req.params.id;
+        });
+        res.render('users', {
+            users
+        });
+    }
+});
+
 router.post('/users', urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-    
+
     let user = req.body;
     let id = [];
     let max;
